@@ -1,0 +1,114 @@
+
+:global {
+  html, body, #root {
+    height: 100%;
+  }
+  @font-face {
+    font-family: "iconfont";
+    src:url("../font/iconfont.eot") format("embedded-opentype"), url("../font/iconfont.woff") format("woff"), url("../font/iconfont.ttf") format("truetype"), url("../font/iconfont.svg") format("svg");
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+
+    background-color: #222;
+  }
+  .stage {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background-color: #ddd;
+    overflow: hidden;
+    .img-sec {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      font-family: Microsoft YaHei;
+      perspective: 1800px;
+      .img-figure {
+        position: absolute;
+
+        width: 320px;
+        height: 360px;
+        margin: 0;
+        padding: 40px;
+
+        background-color: #fff;
+
+        box-sizing: border-box;
+        cursor: pointer;
+        transform-origin: 50% 50% 0;
+        transform-style: preserve-3d;
+        transition: transform .6s ease-in-out, left .6s ease-in-out, top .6s ease-in-out;
+
+        &.is-inverse {
+          transform: rotateY(180deg);
+        }
+        figcaption {
+          .img-title {
+            font-size: 16px;
+            text-align: center;
+            font-weight: normal;
+          }
+          .img-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+            padding: 50px 40px;
+            overflow: auto;
+
+            color: #a7a0a2;
+            font-size: 22px;
+            line-height: 1.25;
+            text-align: left;
+
+            background-color: #fff;
+
+            box-sizing: border-box;
+            transform: rotateY(180deg) translateZ(1px);
+            backface-visibility: hidden;
+          }
+        }
+
+      }
+    }
+    .controller-nav {
+      position: absolute;
+      left:0;
+      bottom: 100px;
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      .controller-unit {
+        display: inline-block;
+        margin: 0 5px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        vertical-align: middle;
+        transform: scale(0.5);
+        background-color: #333333;
+        box-shadow: 0 0 5px #fff;
+        border-radius: 50%;
+        transition: transform 0.6s ease;
+        &.is-center {
+          transform: scale(1);
+          &:after {
+            content: "\e600";
+            font-family: "iconfont";
+            color: #fff;
+            font-size: 16px;
+
+          }
+          &.is-inverse {
+            transform: rotateY(180deg);
+          }
+        }
+      }
+    }
+  }
+}
